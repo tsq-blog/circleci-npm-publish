@@ -23,6 +23,6 @@ workflows:
           filters:
             branches:
               only: main
-          ssh-fingerprints: 2f:3c:4f:66:94:dd:bb:75:dd:2b:f0:f8:93:85:59:66
+          ssh-fingerprints: b9:c4:aa:e9:10:4a:16:ca:ef:19:dd:b8:2e:00:4e:fa
           publish-token-variable: NPM_TOKEN
           push-git-tag: true

@@ -1,8 +1,9 @@
 {
   "name": "circleci-npm-publish",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "《利用CircleCI自动发布npm包》",
   "main": "index.js",
+  "files": ["index.js"],
   "scripts": {
     "test": "node test.js"
   },
