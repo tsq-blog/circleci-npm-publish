@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1
+  npm-publisher: uraway/npm-publisher@0.2.0
+jobs:
+  test:
+    executor:
+      name: node/default
+      tag: "14.15"
+    steps:
+      - checkout
+      - run: npm test
+workflows:
+  test_and_npm_publish_and_git_tag_push:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: main
+      - npm-publisher/publish-from-package-version:
+          requires:
+            - test
+          filters:
+            branches:
+              only: main
+          ssh-fingerprints: 2f:3c:4f:66:94:dd:bb:75:dd:2b:f0:f8:93:85:59:66
+          publish-token-variable: NPM_TOKEN
+          push-git-tag: true
